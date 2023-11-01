@@ -1,8 +1,32 @@
 services:
-  rabbitmq:
-    image: 'rabbitmq:latest'
+#  rabbitmq:
+#    image: 'rabbitmq:latest'
+#    environment:
+#      - 'RABBITMQ_DEFAULT_PASS=secret'
+#      - 'RABBITMQ_DEFAULT_USER=myuser'
+#    ports:
+#      - '5673'
+#    networks:
+#      - network-example
+
+# Use postgres/example user/password credentials
+  db:
+    image: postgres
+    restart: always
     environment:
-      - 'RABBITMQ_DEFAULT_PASS=secret'
-      - 'RABBITMQ_DEFAULT_USER=myuser'
+      POSTGRES_PASSWORD: example
     ports:
-      - '5672'
+      - 5433:5432
+    networks:
+      - network-example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8085:8080
+    networks:
+      - network-example
+
+networks:
+  network-example:
