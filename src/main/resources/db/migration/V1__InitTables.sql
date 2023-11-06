@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS products (
-    id SERIAL PRIMARY KEY ,
-    productName varchar(100) NOT NULL,
+    id varchar(26) PRIMARY KEY ,
+    product_name varchar(100) NOT NULL,
     brand varchar(100) DEFAULT NULL,
     category varchar(100) DEFAULT NULL,
     description text DEFAULT NULL,
-    price numeric(7, 2) DEFAULT NULL,
-    size numeric(7, 2) DEFAULT NULL,
-    packageType varchar(100) DEFAULT NULL,
-    packageSize numeric(7, 2) DEFAULT NULL
+    price numeric(38, 2) DEFAULT NULL,
+    size numeric(38, 2) DEFAULT NULL,
+    package_type varchar(100) DEFAULT NULL,
+    package_size numeric(38, 2) DEFAULT NULL
 );

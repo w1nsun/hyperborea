@@ -17,8 +17,10 @@ services:
       POSTGRES_PASSWORD: example
     ports:
       - 5433:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
     networks:
-      - network-example
+      - mynet
 
   adminer:
     image: adminer
@@ -26,7 +28,10 @@ services:
     ports:
       - 8085:8080
     networks:
-      - network-example
+      - mynet
+
+volumes:
+  postgres-data:
 
 networks:
-  network-example:
+  mynet:
