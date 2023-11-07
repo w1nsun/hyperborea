@@ -1,4 +1,4 @@
-package com.w1n.hyperborea.warehouse.app.usecases.createProduct;
+package com.w1n.hyperborea.warehouse.app.usecases.createproduct;
 
 import com.github.f4b6a3.ulid.UlidCreator;
 import com.w1n.hyperborea.core.app.usecases.ICommandHandler;

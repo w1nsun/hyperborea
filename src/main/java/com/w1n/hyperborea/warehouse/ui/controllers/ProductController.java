@@ -1,7 +1,7 @@
 package com.w1n.hyperborea.warehouse.ui.controllers;
 
 import com.w1n.hyperborea.warehouse.app.services.ProductService;
-import com.w1n.hyperborea.warehouse.app.usecases.createProduct.CreateProductCommand;
+import com.w1n.hyperborea.warehouse.app.usecases.createproduct.CreateProductCommand;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

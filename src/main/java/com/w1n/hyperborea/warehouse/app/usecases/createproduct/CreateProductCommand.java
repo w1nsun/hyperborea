@@ -1,4 +1,4 @@
-package com.w1n.hyperborea.warehouse.app.usecases.createProduct;
+package com.w1n.hyperborea.warehouse.app.usecases.createproduct;
 
 import com.w1n.hyperborea.core.app.usecases.ICommand;
 import com.w1n.hyperborea.warehouse.domain.constraints.ProductPackageType;

@@ -1,7 +1,7 @@
 package com.w1n.hyperborea.warehouse.app.services;
 
-import com.w1n.hyperborea.warehouse.app.usecases.createProduct.CreateProductCommand;
-import com.w1n.hyperborea.warehouse.app.usecases.createProduct.CreateProductCommandHandler;
+import com.w1n.hyperborea.warehouse.app.usecases.createproduct.CreateProductCommand;
+import com.w1n.hyperborea.warehouse.app.usecases.createproduct.CreateProductCommandHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
