@@ -15,13 +15,14 @@ public class CreateProductCommandHandler implements ICommandHandler<CreateProduc
   }
 
   @Override
-  public Object execute(CreateProductCommand command) {
+  public Product execute(CreateProductCommand command) {
     Product product = new Product();
-    product.setId(UlidCreator.getUlid().toString());
-    product.setProductName(command.productName);
+    product
+        .setId(UlidCreator.getUlid().toString())
+        .setProductName(command.productName);
 
     this.productRepo.save(product);
 
-    return null;
+    return product;
   }
 }
