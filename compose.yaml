@@ -12,7 +12,7 @@ services:
 # Use postgres/example user/password credentials
   db:
     image: postgres
-    restart: always
+    restart: on-failure
     environment:
       POSTGRES_PASSWORD: example
     ports:
@@ -24,7 +24,7 @@ services:
 
   adminer:
     image: adminer
-    restart: always
+    restart: on-failure
     ports:
       - 8085:8080
     networks:
