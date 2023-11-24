@@ -1,3 +1,12 @@
+### Run locally
+
+1. Run `docker-compose up -d` in the project folder.
+2. Manually create database `hyperborea`
+
+### Database migrations `flyway`
+
+ .... Under development
+
 ### Testing
 
 1. Create manually database with name `hyperborea_test`
