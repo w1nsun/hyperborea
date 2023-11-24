@@ -1,5 +1,6 @@
 package com.w1n.hyperborea.warehouse.ui.controllers;
 
+import static com.jayway.jsonpath.JsonPath.parse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -7,11 +8,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
+import com.w1n.hyperborea.warehouse.domain.enums.ProductEnum;
+import com.w1n.hyperborea.warehouse.domain.repositories.ProductRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -22,6 +25,14 @@ class ProductControllerTest {
 
   @Autowired
   private MockMvc mockMvc;
+
+  @Autowired
+  private ProductRepository productRepository;
+
+  @AfterEach
+  public void deleteEntities() {
+    productRepository.deleteAll();
+  }
 
   @Test
   void getAction() throws Exception {
@@ -34,13 +45,13 @@ class ProductControllerTest {
   void createAction() throws Exception {
     String content = new ObjectMapper().writeValueAsString(
         ImmutableMap.builder()
-            .put("productName", "test-integration2")
+            .put("productName", "Test product")
             .put("brandId", "01HF9XCNDSZY6CMTRGCYY6Z2AN")
             .put("category", "111")
-            .put("description", 2222)
+            .put("description", "Some product description")
             .put("price", 10.0)
             .put("size", 1)
-            .put("packageType", "BOTTLE")
+            .put("packageType", ProductEnum.PackageType.BOTTLE)
             .put("packageSize", 111.1)
             .build()
     );
@@ -48,5 +59,7 @@ class ProductControllerTest {
         .contentType(MediaType.APPLICATION_JSON)
         .content(content)
     ).andExpect(status().isCreated()).andReturn();
+
+    System.out.println(parse(result.getResponse().getContentAsString()).jsonString());
   }
 }

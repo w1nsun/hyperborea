@@ -1,5 +1,7 @@
 ### Testing
 
+1. Create manually database with name `hyperborea_test`
+
 https://www.baeldung.com/integration-testing-in-spring
 
 https://www.youtube.com/watch?v=erp-7MCK5BU
