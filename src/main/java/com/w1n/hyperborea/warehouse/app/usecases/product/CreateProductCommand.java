@@ -1,4 +1,4 @@
-package com.w1n.hyperborea.warehouse.app.usecases.createproduct;
+package com.w1n.hyperborea.warehouse.app.usecases.product;
 
 import com.w1n.hyperborea.core.app.usecases.ICommand;
 import com.w1n.hyperborea.warehouse.domain.constraints.ProductPackageType;
@@ -10,8 +10,8 @@ public class CreateProductCommand implements ICommand {
   public String productName;
 
   @NotBlank
-  @Size(max = 100)
-  public String brand;
+  @Size(max = 26, min = 26)
+  public String brandId;
 
   @NotBlank
   @Size(max = 100)
